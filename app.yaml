@@ -1,4 +1,3 @@
-application: piecut
 version: 1
 runtime: python36
 api_version: 1
