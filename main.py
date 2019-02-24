@@ -5,6 +5,7 @@ import os
 
 app = Flask(__name__)
 app.config.from_object(__name__)
+app.config['SESSION_TYPE'] = 'filesystem'
 
 class ReusableForm(Form):
     name = StringField('Name:', validators=[validators.required()])
