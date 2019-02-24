@@ -9,7 +9,7 @@ app.config.from_object(__name__)
 app.config['SESSION_TYPE'] = 'filesystem'
 app.secret_key = 'c85db1d3af3753874a2f917aaec1271698ed850ef2037761'
 tempfile.tempdir = "/tmp"
-dirpath = tempfile.gettempdir()
+dirpath = tempfile.gettempdir(mode='w+t')
 
 class ReusableForm(Form):
     name = StringField('Name:', validators=[validators.required()])
