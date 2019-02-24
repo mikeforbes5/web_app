@@ -6,6 +6,7 @@ import os
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SESSION_TYPE'] = 'filesystem'
+app.secret_key = 'c85db1d3af3753874a2f917aaec1271698ed850ef2037761'
 
 class ReusableForm(Form):
     name = StringField('Name:', validators=[validators.required()])
@@ -72,6 +73,5 @@ def logout():
     return home()
 
 if __name__ == "__main__":
-    app.secret_key = 'c85db1d3af3753874a2f917aaec1271698ed850ef2037761'
-    app.run(debug=True)
+        app.run(debug=True)
 
