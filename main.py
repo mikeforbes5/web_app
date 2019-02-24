@@ -1,15 +1,12 @@
 import youtube_dl
 from flask import Flask, flash, render_template, request, session, send_file
 from wtforms import Form, validators, StringField
-import tempfile
 import os
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-app.config['SESSION_TYPE'] = 'filesystem'
-app.secret_key = 'c85db1d3af3753874a2f917aaec1271698ed850ef2037761'
-dirpath = tempfile.gettempdir()
 
+file_num = os.urandom(10).hex()
 class ReusableForm(Form):
     name = StringField('Name:', validators=[validators.required()])
 
@@ -23,15 +20,9 @@ def hello():
         print(name)
         if form.validate() == True:
             name = request.form['name']
-            with youtube_dl.YoutubeDL() as ytdl:
-                info = ytdl.extract_info(name)
-                sc_artist = info['uploader']
-                sc_artist = sc_artist.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                sc_title = info['title']
-                sc_title = sc_title.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                sc_ext = info['ext']
-                sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                ytdl_format_options = {'format': 'bestaudio/best', 'outtmpl':  sc_artist + " - " + sc_title + "." + sc_ext,'quiet':True}
+            ytdl_format_options = {'format': 'bestaudio/best',
+                                       'outtmpl': 'C:\\temp\\' +'song'+ file_num + '.mp3',
+                                       'quiet': True}
             with youtube_dl.YoutubeDL(ytdl_format_options) as ytdl:
                 ytdl.download([name])
                 info = ytdl.extract_info(name)
@@ -41,10 +32,12 @@ def hello():
                 sc_title = sc_title.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
                 sc_ext = info['ext']
                 sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                return send_file(filename_or_fp= sc_artist + " - " + sc_title + "." + sc_ext,mimetype='audio/mpeg',as_attachment= True, attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
+                return send_file(filename_or_fp='C:\\temp\\' +'song'+ file_num + '.mp3',
+                                 mimetype='audio/mpeg', as_attachment=True,
+                                 attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
         else:
             flash('Error: Please input valid name')
-    session.clear() 
+
     return render_template('hello.html', form=form)
 
 
