@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-
+app.secret_key = os.urandom(24).hex()
 file_num = os.urandom(10).hex()
 class ReusableForm(Form):
     name = StringField('Name:', validators=[validators.required()])
