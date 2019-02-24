@@ -32,7 +32,7 @@ def hello():
                 sc_title = sc_title.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
                 sc_ext = info['ext']
                 sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                ytdl_format_options = {'format': 'bestaudio/best', 'outtmpl': 'C:\temp\' + sc_artist + " - " + sc_title + "." + sc_ext,'quiet':True}
+                ytdl_format_options = {'format': 'bestaudio/best', 'outtmpl':  sc_artist + " - " + sc_title + "." + sc_ext,'quiet':True}
             with youtube_dl.YoutubeDL(ytdl_format_options) as ytdl:
                 ytdl.download([name])
                 info = ytdl.extract_info(name)
@@ -42,7 +42,7 @@ def hello():
                 sc_title = sc_title.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
                 sc_ext = info['ext']
                 sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                return send_file(filename_or_fp= 'C:\temp\' + sc_artist + " - " + sc_title + "." + sc_ext,mimetype='audio/mpeg',as_attachment= True, attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
+                return send_file(filename_or_fp= sc_artist + " - " + sc_title + "." + sc_ext,mimetype='audio/mpeg',as_attachment= True, attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
         else:
             flash('Error: Please input valid name')
     session.clear() 
