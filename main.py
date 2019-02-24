@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SESSION_TYPE'] = 'filesystem'
 app.secret_key = 'c85db1d3af3753874a2f917aaec1271698ed850ef2037761'
+tempfile.tempdir = "/tmp"
 dirpath = tempfile.gettempdir()
 
 class ReusableForm(Form):
@@ -31,7 +32,7 @@ def hello():
                 sc_title = sc_title.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
                 sc_ext = info['ext']
                 sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                ytdl_format_options = {'format': 'bestaudio/best', 'outtmpl': '~/tmp/'  + sc_artist + " - " + sc_title + "." + sc_ext,'quiet':True}
+                ytdl_format_options = {'format': 'bestaudio/best', 'outtmpl': dirpath + "/"  + sc_artist + " - " + sc_title + "." + sc_ext,'quiet':True}
             with youtube_dl.YoutubeDL(ytdl_format_options) as ytdl:
                 ytdl.download([name])
                 info = ytdl.extract_info(name)
@@ -41,7 +42,7 @@ def hello():
                 sc_title = sc_title.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
                 sc_ext = info['ext']
                 sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                return send_file(filename_or_fp= '~/tmp/' + sc_artist + " - " + sc_title + "." + sc_ext,mimetype='audio/mpeg',as_attachment= True, attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
+                return send_file(filename_or_fp= dirpath + "/" + sc_artist + " - " + sc_title + "." + sc_ext,mimetype='audio/mpeg',as_attachment= True, attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
         else:
             flash('Error: Please input valid name')
     session.clear() 
