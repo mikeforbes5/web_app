@@ -21,7 +21,7 @@ def hello():
         if form.validate() == True:
             name = request.form['name']
             ytdl_format_options = {'format': 'bestaudio/best',
-                                       'outtmpl':'home/mforbes5223/web_app/web_app/' + 'song'+ file_num + '.mp3',
+                                       'outtmpl':'~/mforbes5223/web_app/web_app/' + 'song'+ file_num + '.mp3',
                                        'quiet': True}
             with youtube_dl.YoutubeDL(ytdl_format_options) as ytdl:
                 ytdl.download([name])
