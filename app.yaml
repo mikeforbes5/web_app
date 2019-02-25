@@ -1,1 +1,2 @@
 runtime: python37
+google_app_engine.disable_readonly_filesystem=1
