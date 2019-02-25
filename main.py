@@ -17,27 +17,27 @@ def hello():
     print(form.errors)
     if request.method == 'POST':
         try:
-        name = request.form['name']
-        print(name)
-        if form.validate() == True:
             name = request.form['name']
-            ytdl_format_options = {'format': 'bestaudio/best',
+            print(name)
+            if form.validate() == True:
+                name = request.form['name']
+                ytdl_format_options = {'format': 'bestaudio/best',
                                        'outtmpl':'/home/mforbes5223/web_app/media/' + 'song'+ file_num + '.mp3',
                                        'quiet': True}
-            with youtube_dl.YoutubeDL(ytdl_format_options) as ytdl:
-                ytdl.download([name])
-                info = ytdl.extract_info(name)
-                sc_artist = info['uploader']
-                sc_artist = sc_artist.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                sc_title = info['title']
-                sc_title = sc_title.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                sc_ext = info['ext']
-                sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                return send_file(filename_or_fp='/home/mforbes5223/web_app/media/' + 'song'+ file_num + '.mp3',
-                                 mimetype='audio/mpeg', as_attachment=True,
-                                 attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
-        else:
-            flash('Error: Please input valid name')
+                with youtube_dl.YoutubeDL(ytdl_format_options) as ytdl:
+                    ytdl.download([name])
+                    info = ytdl.extract_info(name)
+                    sc_artist = info['uploader']
+                    sc_artist = sc_artist.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
+                    sc_title = info['title']
+                    sc_title = sc_title.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
+                    sc_ext = info['ext']
+                    sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
+                    return send_file(filename_or_fp='/home/mforbes5223/web_app/media/' + 'song'+ file_num + '.mp3',
+                                    mimetype='audio/mpeg', as_attachment=True,
+                                    attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
+            else:
+                flash('Error: Please input valid name')
         except io.BlockingIOError:
             pass
     return render_template('hello.html', form=form)
