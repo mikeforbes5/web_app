@@ -1,2 +1,2 @@
 runtime: python37
-entrypoint: gunicorn -b :$PORT main:app --timeout 9000
+entrypoint: gunicorn -b :$PORT main:app -t 900
