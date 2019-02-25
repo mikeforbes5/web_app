@@ -2,7 +2,7 @@ import youtube_dl
 from flask import Flask, flash, render_template, request, session, send_file
 from wtforms import Form, validators, StringField
 import os
-
+import io
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.secret_key = os.urandom(24).hex()
@@ -16,6 +16,7 @@ def hello():
     form = ReusableForm(request.form)
     print(form.errors)
     if request.method == 'POST':
+        try:
         name = request.form['name']
         print(name)
         if form.validate() == True:
@@ -37,7 +38,8 @@ def hello():
                                  attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
         else:
             flash('Error: Please input valid name')
-
+        except io.BlockingIOError:
+            pass
     return render_template('hello.html', form=form)
 
 
