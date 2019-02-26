@@ -1,5 +1,9 @@
 runtime: python
 env: flex
-network:
-  session_affinity: true
+readiness_check:
+  check_interval_sec: 5
+  timeout_sec: 30
+  failure_threshold: 2
+  success_threshold: 1
+  app_start_timeout_sec: 300
   
