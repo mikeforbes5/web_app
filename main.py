@@ -2,7 +2,8 @@ import youtube_dl
 from flask import Flask, flash, render_template, request, session, send_file
 from wtforms import Form, validators, StringField
 import os
-
+import tempfile
+handle, path = tempfile.mkstemp()
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.secret_key = os.urandom(24).hex()
@@ -21,7 +22,7 @@ def hello():
             if form.validate() == True:
                 name = request.form['name']
                 ytdl_format_options = {'format': 'bestaudio/best',
-                                       'outtmpl':'/tmp/' + 'song'+ file_num + '.mp3',
+                                       'outtmpl':path + 'song'+ file_num + '.mp3',
                                        'quiet': True}
                 with youtube_dl.YoutubeDL(ytdl_format_options) as ytdl:
                     ytdl.download([name])
@@ -32,7 +33,7 @@ def hello():
                     sc_title = sc_title.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
                     sc_ext = info['ext']
                     sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                    return send_file(filename_or_fp='/tmp/' + 'song'+ file_num + '.mp3',
+                    return send_file(filename_or_fp=path + 'song'+ file_num + '.mp3',
                                     mimetype='audio/mpeg', as_attachment=True,
                                     attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
                     
