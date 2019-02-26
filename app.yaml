@@ -1,19 +1,5 @@
 runtime: python
 env: flex
-automatic_scaling:
-  target_cpu_utilization: 0.5
-  max_instances: 1000
-  min_instances: 1000
-  max_idle_instances: 5
-  min_pending_latency: 15000ms  # default value
-  max_pending_latency: automatic
-  max_concurrent_requests: 80
-  target_throughput_utilization: .5
-  min_idle_instances: 1
 network:
   session_affinity: true
-readiness_check:
-  check_interval_sec: 30
-  timeout_sec: 60
-  failure_threshold: 5
   
