@@ -13,7 +13,7 @@ class ReusableForm(Form):
 
 @app.route("/URL-Submit", methods=['GET', 'POST'])
 def hello():
-    form = ReusableForm(request.form)_
+    form = ReusableForm(request.form)
     print(form.errors)
     if request.method == 'POST':
             name = request.form['name']
