@@ -1,4 +1,4 @@
-runtime: python35
+runtime: python37
 env: standard
 automatic_scaling:
   target_cpu_utilization: 0.5
