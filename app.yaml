@@ -1,4 +1,4 @@
-runtime: python37
+runtime: python36
 env: flex
 automatic_scaling:
   target_cpu_utilization: 0.5
