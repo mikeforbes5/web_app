@@ -37,7 +37,7 @@ def hello():
                                     attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
             else:
                 flash('Error: Please input valid name')
-
+    session.clear()
     return render_template('hello.html', form=form)
 
 
