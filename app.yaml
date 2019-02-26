@@ -1,7 +1,7 @@
 runtime: python
 env: flex
 readiness_check:
-  check_interval_sec: 5
+  check_interval_sec: 60
   timeout_sec: 30
   failure_threshold: 2
   success_threshold: 1
