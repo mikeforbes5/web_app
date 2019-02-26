@@ -12,4 +12,8 @@ automatic_scaling:
   min_idle_instances: 1
 network:
   session_affinity: true
+readiness_check:
+    check_interval_sec: 30
+  timeout_sec: 60
+  failure_threshold: 5
   
