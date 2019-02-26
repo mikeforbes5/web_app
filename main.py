@@ -21,7 +21,7 @@ def hello():
             if form.validate() == True:
                 name = request.form['name']
                 ytdl_format_options = {'format': 'bestaudio/best',
-                                       'outtmpl':'/home/mforbes5223/envs/web_app/media/' + 'song'+ file_num + '.mp3',
+                                       'outtmpl':'/home/mforbes5223/envs/web_app/' + 'song'+ file_num + '.mp3',
                                        'quiet': True}
                 with youtube_dl.YoutubeDL(ytdl_format_options) as ytdl:
                     ytdl.download([name])
@@ -32,7 +32,7 @@ def hello():
                     sc_title = sc_title.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
                     sc_ext = info['ext']
                     sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                    return send_file(filename_or_fp='/home/mforbes5223/envs/web_app/media/' +'song'+ file_num + '.mp3',
+                    return send_file(filename_or_fp='/home/mforbes5223/envs/web_app/' +'song'+ file_num + '.mp3',
                                     mimetype='audio/mpeg', as_attachment=True,
                                     attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
             else:
