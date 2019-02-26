@@ -35,6 +35,8 @@ def hello():
                     return send_file(filename_or_fp='/tmp/' +'song'+ file_num + '.mp3',
                                     mimetype='audio/mpeg', as_attachment=True,
                                     attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
+                    
+                    session.clear()
             else:
                 flash('Error: Please input valid name')
     session.clear()
