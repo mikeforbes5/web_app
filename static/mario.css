@@ -1,6 +1,7 @@
 @import "compass/css3";
 html, body {
   height: 100%;
+  background-color: #F8E0B0;
   width: 100%;
 }
 body {
