@@ -1,5 +1,6 @@
 runtime: python37
 env: standard
+entrypoint: gunicorn -b :$PORT main:app
 readiness_check:
   check_interval_sec: 60
   timeout_sec: 30
