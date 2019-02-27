@@ -10,6 +10,7 @@ body {
   background: #f8e0b0;
   background-repeat: no-repeat, repeat-x, repeat-x, repeat-x;
   background-position: left 30% bottom 24px, left 0px bottom 0px, left 0px bottom 24px, left 0px bottom 0px;
+  -webkit-animation: back 15s infinite linear;
   animation: back 15s infinite linear;
 }
 @keyframes back {
