@@ -1,4 +1,4 @@
-runtime: python37
+runtime: python27
 env: standard
 entrypoint: gunicorn -b :$PORT main:app
 threadsafe: true
