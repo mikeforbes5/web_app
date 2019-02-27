@@ -15,10 +15,8 @@ class ReusableForm(Form):
 @app.route("/URL-Submit", methods=['GET', 'POST'])
 def hello():
     form = ReusableForm(request.form)
-    print(form.errors)
     if request.method == 'POST':
             name = request.form['name']
-            print(name)
             if form.validate() == True:
                 name = request.form['name']
                 ytdl_format_options = {'format': 'bestaudio/best',
