@@ -8,7 +8,6 @@ body {
   background: #f8e0b0;
   background-repeat: no-repeat, repeat-x, repeat-x, repeat-x;
   background-position: left 30% bottom 24px, left 0px bottom 0px, left 0px bottom 24px, left 0px bottom 0px;
-  -webkit-animation: back 15s infinite linear;
   animation: back 15s infinite linear;
 }
 @keyframes back {
@@ -22,48 +21,3 @@ body {
     background-position: left 30% bottom 24px, left -1632px bottom 0px, left -1016px bottom 24px, left -512px bottom 0px;
   }
 }
-@-moz-keyframes back {
-  0% {
-    background-position: left 30% bottom 24px, left 0px bottom 0px, left 0px bottom 24px, left 0px bottom 0px;
-  }
-  50% {
-    background-position: left 50% bottom 24px, left -816px bottom 0px, left -508px bottom 24px, left -256px bottom 0px;
-  }
-  100% {
-    background-position: left 30% bottom 24px, left -1632px bottom 0px, left -1016px bottom 24px, left -512px bottom 0px;
-  }
-}
-@-webkit-keyframes back {
-  0% {
-    background-position: left 30% bottom 24px, left 0px bottom 0px, left 0px bottom 24px, left 0px bottom 0px;
-  }
-  50% {
-    background-position: left 50% bottom 24px, left -816px bottom 0px, left -508px bottom 24px, left -256px bottom 0px;
-  }
-  100% {
-    background-position: left 30% bottom 24px, left -1632px bottom 0px, left -1016px bottom 24px, left -512px bottom 0px;
-  }
-}
-@-o-keyframes back {
-  0% {
-    background-position: left 30% bottom 24px, left 0px bottom 0px, left 0px bottom 24px, left 0px bottom 0px;
-  }
-  50% {
-    background-position: left 50% bottom 24px, left -816px bottom 0px, left -508px bottom 24px, left -256px bottom 0px;
-  }
-  100% {
-    background-position: left 30% bottom 24px, left -1632px bottom 0px, left -1016px bottom 24px, left -512px bottom 0px;
-  }
-}
-@-ms-keyframes back {
-  0% {
-    background-position: left 30% bottom 24px, left 0px bottom 0px, left 0px bottom 24px, left 0px bottom 0px;
-  }
-  50% {
-    background-position: left 50% bottom 24px, left -816px bottom 0px, left -508px bottom 24px, left -256px bottom 0px;
-  }
-  100% {
-    background-position: left 30% bottom 24px, left -1632px bottom 0px, left -1016px bottom 24px, left -512px bottom 0px;
-  }
-}
-
