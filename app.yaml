@@ -1,9 +1,6 @@
 runtime: python27
 env: standard
 threadsafe: true
-handlers:
-- url: /.*
-  script: main.app
 readiness_check:
   check_interval_sec: 60
   timeout_sec: 30
