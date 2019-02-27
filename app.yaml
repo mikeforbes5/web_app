@@ -11,4 +11,8 @@ env_variables:
   ## Put production environment variables here.
   APP_STORAGE: /tmp
   VIEW_COMPILED_PATH: /tmp
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
   
