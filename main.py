@@ -3,7 +3,6 @@ from flask import Flask, flash, render_template, request, session, send_file
 from wtforms import Form, validators, StringField
 import os
 import tempfile
-import sys
 handle, path = tempfile.mkstemp()
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -37,7 +36,6 @@ def hello():
                     return send_file(filename_or_fp=path + 'song'+ file_num + '.mp3',
                                     mimetype='audio/mpeg', as_attachment=True,
                                     attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
-                    sys.exit
                     session.clear()
             else:
                 flash('Error: Please input valid name')
