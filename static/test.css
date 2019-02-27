@@ -1,4 +1,5 @@
 body {
 height: 100%;
 background-color: #f8e0b0;
-background-position: left 0px bottom 0px}
+background-size:contain;
+}
