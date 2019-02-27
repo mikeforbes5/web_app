@@ -1,6 +1,5 @@
-runtime: python27
+runtime: python37
 env: standard
-threadsafe: true
 readiness_check:
   check_interval_sec: 60
   timeout_sec: 30
@@ -11,8 +10,5 @@ env_variables:
   ## Put production environment variables here.
   APP_STORAGE: /tmp
   VIEW_COMPILED_PATH: /tmp
-handlers:
-- url: /favicon\.ico
-  static_files: favicon.ico
-  upload: favicon\.ico
+
   
