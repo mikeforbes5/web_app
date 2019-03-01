@@ -1,14 +1,8 @@
 runtime: python37
 env: standard
-readiness_check:
-  check_interval_sec: 60
-  timeout_sec: 30
-  failure_threshold: 2
-  success_threshold: 1
-  app_start_timeout_sec: 1800
 env_variables:
   ## Put production environment variables here.
   APP_STORAGE: /tmp
   VIEW_COMPILED_PATH: /tmp
-instance_class: F4_1G
+instance_class: B8
   
