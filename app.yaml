@@ -10,5 +10,5 @@ env_variables:
   ## Put production environment variables here.
   APP_STORAGE: /tmp
   VIEW_COMPILED_PATH: /tmp
-
+instance_class: F4_1G
   
