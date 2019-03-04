@@ -22,7 +22,7 @@ def hello():
                 #ytdl_format_options = {'format': 'bestaudio/best',
                 #                       'outtmpl':path + 'song'+ file_num + '.txt',
                 #                       'quiet': True}
-                with open(path + 'song'+ file_num + '.txt', "w") as file:
+                with open('/tmp/' + 'song'+ file_num + '.txt', "w") as file:
                     file.write("Test") 
                     file.close() 
                 #with youtube_dl.YoutubeDL(ytdl_format_options) as ytdl:
