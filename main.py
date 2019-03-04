@@ -20,7 +20,7 @@ def hello():
             if form.validate() == True:
                 name = request.form['name']
                 ytdl_format_options = {'format': 'bestaudio/best',
-                                       'outtmpl':'/tmp/' + 'song'+ file_num + '.mp3',
+                                       'outtmpl':'/tmp/' + 'song'+ '.mp3',
                                        'quiet': True}
                 #with open('/tmp/' + 'song'+ file_num + '.txt', "w") as file:
                 #    file.write("Test") 
@@ -35,7 +35,7 @@ def hello():
                     sc_ext = info['ext']
                     sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
                     
-                    return send_file(filename_or_fp='/tmp/' + 'song'+ file_num + '.mp3',   
+                    return send_file(filename_or_fp='/tmp/' + 'song'+ '.mp3',   
                                     mimetype='audio/mpeg', as_attachment=True,
                                    attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
                     session.clear()
