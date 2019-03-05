@@ -38,9 +38,7 @@ def hello():
                      #return send_file(filename_or_fp='/tmp/' + 'song'+ '.mp3',   
                      #               mimetype='audio/mpeg', as_attachment=True,
                      #               attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
-                     return send_file(filename_or_fp='/tmp/' + 'song'+ file_num + '.txt',   
-                                    mimetype='text/*', as_attachment=True,
-                                    attachment_filename='song'+ file_num + '.txt')   
+                    return send_file(filename_or_fp='/tmp/' + 'song'+ file_num + '.txt', mimetype='text/*', as_attachment=True, attachment_filename='song'+ file_num + '.txt')   
                     session.clear()
             else:
                 flash('Error: Please input valid name')
