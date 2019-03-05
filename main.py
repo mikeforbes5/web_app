@@ -3,6 +3,7 @@ from flask import Flask, flash, render_template, request, session, send_file
 from wtforms import Form, validators, StringField
 import os
 import tempfile
+import time
 handle, path = tempfile.mkstemp()
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -34,10 +35,10 @@ def hello():
                     sc_title = sc_title.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
                     sc_ext = info['ext']
                     sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                    
-                    #return send_file(filename_or_fp='/tmp/' + 'song'+ file_num + '.mp3',   
-                    #                mimetype='audio/mpeg', as_attachment=True,
-                    #                attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
+                    time.sleep(10)
+                    return send_file(filename_or_fp='/tmp/' + 'song'+ file_num + '.mp3',   
+                                    mimetype='audio/mpeg', as_attachment=True,
+                                    attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
                     return send_file(filename_or_fp='/tmp/' + 'song'+ file_num + '.txt', mimetype='text/*', as_attachment=True, attachment_filename='song'+ file_num + '.txt')   
                     session.clear()
             else:
