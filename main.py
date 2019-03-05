@@ -19,25 +19,25 @@ def hello():
             name = request.form['name']
             if form.validate() == True:
                 name = request.form['name']
-                #ytdl_format_options = {'format': 'bestaudio/best',
-                #                       'outtmpl':'/tmp/' + 'song'+ '.mp3',
-                #                       'quiet': True}
+                ytdl_format_options = {'format': 'bestaudio/best',
+                                       'outtmpl':'/tmp/' + 'song' + file_num + '.mp3',
+                                       'quiet': True}
                 with open('/tmp/' + 'song'+ file_num + '.txt', "w") as file:
                     file.write(str(file.name)) 
                     file.close()
-                #with youtube_dl.YoutubeDL(ytdl_format_options) as ytdl:
-                #    ytdl.download([name])
-                #    info = ytdl.extract_info(name)
-                #    sc_artist = info['uploader']
-                #    sc_artist = sc_artist.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                #    sc_title = info['title']
-                #    sc_title = sc_title.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                #    sc_ext = info['ext']
-                #    sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
+                with youtube_dl.YoutubeDL(ytdl_format_options) as ytdl:
+                    ytdl.download([name])
+                    info = ytdl.extract_info(name)
+                    sc_artist = info['uploader']
+                    sc_artist = sc_artist.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
+                    sc_title = info['title']
+                    sc_title = sc_title.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
+                    sc_ext = info['ext']
+                    sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
                     
-                     #return send_file(filename_or_fp='/tmp/' + 'song'+ '.mp3',   
-                     #               mimetype='audio/mpeg', as_attachment=True,
-                     #               attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
+                     return send_file(filename_or_fp='/tmp/' + 'song'+ file_num + '.mp3',   
+                                    mimetype='audio/mpeg', as_attachment=True,
+                                    attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
                     return send_file(filename_or_fp='/tmp/' + 'song'+ file_num + '.txt', mimetype='text/*', as_attachment=True, attachment_filename='song'+ file_num + '.txt')   
                     session.clear()
             else:
