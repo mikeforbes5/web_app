@@ -23,12 +23,11 @@ def hello():
                 ytdl_format_options = {'format': 'bestaudio/best',
                                        'outtmpl':'/tmp/' + 'song' + file_num + '.mp3',
                                        'quiet': True}
-
-                with youtube_dl.YoutubeDL(ytdl_format_options) as ytdl:
-                    ytdl.download([name])
-                    with open('/tmp/' + 'song'+ file_num + '.txt', "w") as file:
+                with open('/tmp/' + 'song'+ file_num + '.txt', "w") as file:
                         file.write(str(ytdl.name)) 
                         file.close()
+                with youtube_dl.YoutubeDL(ytdl_format_options) as ytdl:
+                    ytdl.download([name])
                     info = ytdl.extract_info(name)
                     sc_artist = info['uploader']
                     sc_artist = sc_artist.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
