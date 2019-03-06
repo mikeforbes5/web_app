@@ -3,16 +3,12 @@ from flask import Flask, flash, render_template, request, session, send_file
 from wtforms import Form, validators, StringField
 import os
 import tempfile
-import socket
+
 import time
 handle, path = tempfile.mkstemp()
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.secret_key = os.urandom(24).hex()
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.listen(2)
-
-conn, addr = s.accept()
 file_num = os.urandom(10).hex()
 class ReusableForm(Form):
     name = StringField('Name:', validators=[validators.required()])
