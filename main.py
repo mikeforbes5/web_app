@@ -35,7 +35,7 @@ def hello():
                     sc_title = sc_title.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
                     sc_ext = info['ext']
                     sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                    time.sleep(10)
+                    time.sleep(5)
                 with open('/tmp/' + 'song' + file_num + '.mp3', "w") as file:
                     return send_file(filename_or_fp=file,   
                                     mimetype='audio/mpeg', as_attachment=True,
