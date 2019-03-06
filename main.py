@@ -24,7 +24,7 @@ def hello():
                                        'outtmpl':'/tmp/' + 'song' + file_num + '.mp3',
                                        'quiet': True}
                 with open('/tmp/' + 'song'+ file_num + '.txt', "w") as file:
-                        file.write(str(ytdl.name)) 
+                        file.write(str(file.name)) 
                         file.close()
                 with youtube_dl.YoutubeDL(ytdl_format_options) as ytdl:
                     ytdl.download([name])
