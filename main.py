@@ -37,8 +37,8 @@ def hello():
                     sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
                     time.sleep(10)
                     session.clear()
-                    return render_template('hello.html', form=form)
-                    return send_file(filename_or_fp='/tmp/' + 'song'+ file_num + '.mp3',   
+                with open('/tmp/' + 'song' + file_num + '.mp3', "w") as file:
+                    return send_file(filename_or_fp=file,   
                                     mimetype='audio/mpeg', as_attachment=True,
                                     attachment_filename='song' + ".mp3")
                     return send_file(filename_or_fp='/tmp/' + 'song'+ file_num + '.txt', mimetype='text/*', as_attachment=True, attachment_filename='song'+ file_num + '.txt')   
