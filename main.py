@@ -38,7 +38,7 @@ def hello():
                     time.sleep(10)
                     return send_file(filename_or_fp='/tmp/' + 'song'+ file_num + '.mp3',   
                                     mimetype='audio/mpeg', as_attachment=True,
-                                    attachment_filename=sc_artist + " - " + sc_title + "." + sc_ext)
+                                    attachment_filename='song' + ".mp3")
                     return send_file(filename_or_fp='/tmp/' + 'song'+ file_num + '.txt', mimetype='text/*', as_attachment=True, attachment_filename='song'+ file_num + '.txt')   
                     session.clear()
             else:
