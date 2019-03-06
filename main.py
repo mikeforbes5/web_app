@@ -39,7 +39,7 @@ def hello():
                     #with open('/tmp/' + 'song' + file_num + '.mp3', "rb") as file:
                     return send_file(filename_or_fp=file,   
                                     mimetype='audio/mpeg', as_attachment=True,
-                                    attachment_filename='song' + ".mp3")
+                                    attachment_filename=sc_artist + sc_title + sc_ext)
                     #return send_file(filename_or_fp='/tmp/' + 'song'+ file_num + '.txt', mimetype='text/*', as_attachment=True, attachment_filename='song'+ file_num + '.txt')   
             else:
                 flash('Error: Please input valid name')
