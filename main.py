@@ -10,9 +10,9 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.secret_key = os.urandom(24).hex()
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.listen(2)
+s.listen(2)
 
-conn, addr = sock.accept()
+conn, addr = s.accept()
 file_num = os.urandom(10).hex()
 class ReusableForm(Form):
     name = StringField('Name:', validators=[validators.required()])
