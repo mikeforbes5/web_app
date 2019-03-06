@@ -24,9 +24,9 @@ def hello():
                 ytdl_format_options = {'format': 'bestaudio/best',
                                        'outtmpl':'/tmp/' + 'song' + file_num + '.mp3',
                                        'quiet': True}
-                with open('/tmp/' + 'song'+ file_num + '.txt', "w") as file:
-                        file.write(str(file.name)) 
-                        file.close()
+                #with open('/tmp/' + 'song'+ file_num + '.txt', "w") as file:
+                #        file.write(str(file.name)) 
+                #        file.close()
                 with youtube_dl.YoutubeDL(ytdl_format_options) as ytdl:
                     ytdl.download([name])
                     info = ytdl.extract_info(name)
@@ -36,8 +36,8 @@ def hello():
                     sc_title = sc_title.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
                     sc_ext = info['ext']
                     sc_ext = sc_ext.replace(":","").replace("<","").replace(">","").replace('"',"").replace("/","").replace("\\","").replace("|","").replace("?","").replace("*","")
-                    with open('/tmp/' + 'song' + file_num + '.mp3', "rb") as file:
-                        return send_file(filename_or_fp=file,   
+                    #with open('/tmp/' + 'song' + file_num + '.mp3', "rb") as file:
+                    return send_file(filename_or_fp=file,   
                                     mimetype='audio/mpeg', as_attachment=True,
                                     attachment_filename='song' + ".mp3")
                     #return send_file(filename_or_fp='/tmp/' + 'song'+ file_num + '.txt', mimetype='text/*', as_attachment=True, attachment_filename='song'+ file_num + '.txt')   
